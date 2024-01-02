@@ -1,3 +1,4 @@
+import { LogIn } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -13,8 +14,9 @@ const Navbar = () => {
       <div className="flex gap-4 items-center">
         <Link
           href={"/login"}
-          className=" bg-white text-center p-2 text-black rounded-lg w-24 md:text-lg duration-200 hover:bg-white/80 font-medium  cursor-pointer"
+          className=" bg-white flex gap-3 text-center p-2 text-black rounded-lg justify-center items-center md:text-lg duration-200 hover:bg-white/80 font-medium  cursor-pointer"
         >
+          <LogIn />
           Sign In
         </Link>
       </div>
