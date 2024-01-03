@@ -1,14 +1,30 @@
 "use client";
-import { ChevronDown, LogIn } from "lucide-react";
+import { ChevronDown, LogIn, LogOut } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const session = useSession();
   const [expandMenu, setExpandMenu] = useState<boolean>(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // Close the menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setExpandMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuRef]);
   return (
-    <nav className="flex flex-wrap justify-between items-center">
+    <nav ref={menuRef} className="flex flex-wrap justify-between items-center">
       <Link
         href={"/"}
         className=" font-semibold  font-Montserrat uppercase text-3xl tracking-wider bg-gradient-to-r from-white to-purple-700 bg-clip-text text-transparent"
@@ -63,8 +79,9 @@ const Navbar = () => {
               </span>
               <button
                 onClick={() => signOut()}
-                className=" p-2 font-medium tracking-wide bg-white rounded-lg text-black"
+                className=" p-2 flex gap-3 justify-center items-center duration-200 hover:bg-white/80 font-medium tracking-wide bg-white rounded-lg text-black"
               >
+                <LogOut />
                 SignOut
               </button>
             </div>
