@@ -1,11 +1,12 @@
 "use client";
-import { LogIn } from "lucide-react";
-import { useSession } from "next-auth/react";
+import { ChevronDown, LogIn } from "lucide-react";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 const Navbar = () => {
   const session = useSession();
+  const [expandMenu, setExpandMenu] = useState<boolean>(false);
   return (
     <nav className="flex flex-wrap justify-between items-center">
       <Link
@@ -16,20 +17,58 @@ const Navbar = () => {
       </Link>
       <div className="flex gap-4 items-center">
         {session.status === "authenticated" ? (
-          <Link href={"/login"}>
+          <div className=" relative accent-violet-400 cursor-pointer">
             {session.data?.user?.image ? (
-              <img
-                src={session.data?.user?.image}
-                className="h-10 w-10 rounded-full"
-              />
+              <div
+                onClick={() => setExpandMenu(!expandMenu)}
+                className="flex gap-3 items-center font-semibold"
+              >
+                <img
+                  src={session.data?.user?.image}
+                  className="h-10 w-10 rounded-full"
+                />
+                <div className="flex items-center">
+                  <span className=" truncate w-20 hidden md:block text-sm">
+                    {session?.data?.user?.name || "???"}
+                  </span>
+                  <ChevronDown />
+                </div>
+              </div>
             ) : (
-              <div>
+              <div
+                onClick={() => setExpandMenu(!expandMenu)}
+                className="flex cursor-pointer items-center gap-3 font-semibold"
+              >
                 <div className="w-10 h-10 text-xl bg-white rounded-full flex text-black justify-center items-center font-bold">
                   {session.data?.user?.name?.charAt(0)}
                 </div>
+                <div className="flex items-center">
+                  <span className=" truncate w-20 hidden md:block text-sm">
+                    {session?.data?.user?.name || "???"}
+                  </span>
+                  <ChevronDown />
+                </div>
               </div>
             )}
-          </Link>
+            <div
+              className={`absolute ${
+                expandMenu ? "scale-100" : "scale-0"
+              } duration-150 right-0 top-12 shadow-md shadow-purple-400/5 p-2 w-48 h-auto text-sm rounded-lg bg-black border-white/20 border-2 flex flex-col gap-3 overflow-y-scroll`}
+            >
+              <span className="truncate w-24">
+                {session?.data?.user?.name || "???"}
+              </span>
+              <span className="truncate w-[90%]">
+                {session?.data?.user?.email || "???"}
+              </span>
+              <button
+                onClick={() => signOut()}
+                className=" p-2 font-medium tracking-wide bg-white rounded-lg text-black"
+              >
+                SignOut
+              </button>
+            </div>
+          </div>
         ) : (
           <Link
             href={"/login"}
