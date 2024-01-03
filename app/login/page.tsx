@@ -6,7 +6,7 @@ const page = () => {
     <div className="flex flex-col justify-center items-center min-h-[90vh]">
       <button
         onClick={() => Toast.ErrorShowToast("Under Development")}
-        className=" bg-white font-medium items-center text-black flex gap-3 p-4 rounded-lg shadow-sm shadow-purple-400"
+        className=" bg-white duration-200 hover:bg-white/70 font-medium items-center text-black flex gap-3 p-4 rounded-lg shadow-sm shadow-purple-400"
       >
         <img
           src={

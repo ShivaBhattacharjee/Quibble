@@ -26,9 +26,9 @@ export default function RootLayout({
           color="#9333EA"
           initialPosition={0.08}
           crawlSpeed={200}
-          height={3}
+          height={6}
           crawl={true}
-          showSpinner={true}
+          showSpinner={false}
           easing="ease"
           speed={200}
           zIndex={1600}

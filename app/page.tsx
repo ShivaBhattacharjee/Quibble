@@ -6,10 +6,10 @@ const page = () => {
   return (
     <section className="">
       <div className="flex justify-center gap-4 items-center flex-col min-h-[90vh]">
-        <h1 className=" text-6xl font-Montserrat md:text-7xl mb-3 lg:max-w-[600px]  text-center font-bold bg-gradient-to-r from-purple-700 via-blue-300 to-orange-400 text-transparent bg-clip-text animate-gradient">
+        <h1 className=" text-5xl font-Montserrat md:text-7xl lg:text-8xl lg:max-w-[800px] mb-3 md:max-w-[600px]  text-center font-bold bg-gradient-to-r from-purple-700 via-blue-300 to-orange-400 text-transparent bg-clip-text animate-gradient">
           Let's Quibble and Create!
         </h1>
-        <p className=" text-white/70 font-medium lg:max-w-[600px] text-center text-sm">
+        <p className=" text-white/70 font-medium lg:max-w-[600px] text-center lg:text-md text-sm">
           Elevate Your Content with Professionalism and Humor we Craft Anything
           from Blogs and Poems to Stories, Lyrics.
         </p>
