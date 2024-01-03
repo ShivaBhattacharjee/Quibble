@@ -16,7 +16,7 @@ const page = () => {
         <div className="flex justify-center flex-wrap items-center gap-3">
           <Link
             href={"/chat"}
-            className="flex bg-white duration-200 hover:bg-white/80 cursor-pointer text-black gap-3 items-center font-medium tracking-wider  p-3 rounded-md"
+            className="flex bg-white duration-200 hover:bg-white/80 cursor-pointer text-black gap-3 items-center font-medium tracking-wider p-3 md:p-5 md:text-lg rounded-md"
           >
             <Route />
             Get Started
@@ -25,7 +25,7 @@ const page = () => {
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/ShivaBhattacharjee/Quibble"
-            className="flex duration-200 hover:scale-95 gap-3 items-center border-2 font-medium tracking-wider border-white/20 p-3 rounded-md"
+            className="flex duration-200 hover:scale-95 gap-3 items-center border-2 font-medium tracking-wider border-white/20 p-3 md:p-5 md:text-lg rounded-md"
           >
             <Github /> Star on Github
           </a>

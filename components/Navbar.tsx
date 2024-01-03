@@ -9,7 +9,6 @@ const Navbar: React.FC = () => {
   const [expandMenu, setExpandMenu] = useState<boolean>(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // Close the menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -41,13 +40,15 @@ const Navbar: React.FC = () => {
               >
                 <img
                   src={session.data?.user?.image}
-                  className="h-10 w-10 rounded-full"
+                  className=" h-9 w-9 rounded-full"
                 />
                 <div className="flex items-center">
                   <span className=" truncate w-20 hidden md:block text-sm">
                     {session?.data?.user?.name || "???"}
                   </span>
-                  <ChevronDown />
+                  <ChevronDown
+                    className={`${expandMenu && "rotate-180"} duration-200`}
+                  />
                 </div>
               </div>
             ) : (

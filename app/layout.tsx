@@ -29,7 +29,7 @@ export default function RootLayout({
           crawlSpeed={200}
           height={6}
           crawl={true}
-          showSpinner={false}
+          showSpinner={true}
           easing="ease"
           speed={200}
           zIndex={1600}
