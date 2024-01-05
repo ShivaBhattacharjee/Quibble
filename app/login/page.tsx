@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { ClipLoader } from "react-spinners";
 
-const page = () => {
+const Login = () => {
   const session = useSession();
   const router = useRouter();
   useEffect(() => {
@@ -46,4 +46,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Login;

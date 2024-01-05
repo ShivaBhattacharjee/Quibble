@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { SyncLoader } from "react-spinners";
 
-const page = () => {
+const Chat = () => {
   const aiStyle =
     "bg-white/5 z-10 w-72 lg:w-96  break-words border-2 border-white/15 outline-none rounded-lg p-3";
   const router = useRouter();
@@ -115,4 +115,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Chat;
