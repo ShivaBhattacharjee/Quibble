@@ -5,7 +5,7 @@ import { Bot, SendHorizontal } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
-import { BeatLoader } from "react-spinners";
+import { SyncLoader } from "react-spinners";
 
 const page = () => {
   const aiStyle =
@@ -87,7 +87,7 @@ const page = () => {
         <div className=" w-full lg:w-[60%] border-2 border-white/10 flex gap-7 flex-wrap justify-between bg-white bg-opacity-10 max-h-40 rounded-lg p-6 overflow-auto relative">
           {loading ? (
             <div className="flex w-full text-center justify-center items-center">
-              <BeatLoader color="#a78bfa" />
+              <SyncLoader color="#a78bfa" />
             </div>
           ) : (
             <textarea
