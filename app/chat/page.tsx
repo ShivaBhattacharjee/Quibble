@@ -14,10 +14,11 @@ const page = () => {
   const session = useSession();
   const [messages, setMessages] = React.useState<string>("");
   const [loading, setLoading] = React.useState<boolean>(false);
+  const [response, setResponse] = React.useState<string>("");
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      if (messages.length > 0) {
+      if (messages.length > 10) {
         const body = {
           prompt: messages,
         };
@@ -27,7 +28,7 @@ const page = () => {
         const res = await req.data;
         console.log(res);
       } else {
-        Toast.ErrorShowToast("Message can't be empty");
+        Toast.ErrorShowToast("Message length should be greater than 10");
       }
     } catch (Error) {
       setLoading(false);
