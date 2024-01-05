@@ -70,7 +70,7 @@ const Navbar: React.FC = () => {
             <div
               className={`absolute ${
                 expandMenu ? "scale-100" : "scale-0"
-              } duration-150 right-0 top-12 shadow-md shadow-purple-400/5 p-2 w-48 h-auto text-sm rounded-lg bg-black border-white/20 border-2 flex flex-col gap-3 overflow-y-scroll`}
+              } duration-150 right-0 top-12 shadow-md shadow-purple-400/5 p-2 w-48 h-auto z-50 text-sm rounded-lg bg-black border-white/20 border-2 flex flex-col gap-3 overflow-y-scroll`}
             >
               <span className="truncate w-24">
                 {session?.data?.user?.name || "???"}
@@ -80,7 +80,7 @@ const Navbar: React.FC = () => {
               </span>
               <button
                 onClick={() => signOut()}
-                className=" p-2 flex gap-3 justify-center items-center duration-200 hover:bg-white/80 font-medium tracking-wide bg-white rounded-lg text-black"
+                className=" p-2 flex gap-3 cursor-pointer justify-center items-center duration-200 hover:bg-white/80 font-medium tracking-wide bg-white rounded-lg text-black"
               >
                 <LogOut />
                 SignOut

@@ -24,6 +24,9 @@ const page = () => {
   }
   return (
     <div className="flex flex-col justify-center items-center min-h-[90vh]">
+      <h2 className=" mb-5 text-xl font-bold capitalize">
+        Please Login to Continue
+      </h2>
       {session.status === "unauthenticated" && (
         <button
           onClick={() => signIn("google")}
