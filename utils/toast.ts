@@ -19,7 +19,7 @@ const Toast = {
   ErrorShowToast: (message: string) => {
     toast.error(message, {
       style: {
-        border: "1px solid #FF0000",
+        border: "2px solid #FF0000",
         padding: "16px",
         color: "#fff",
         backgroundColor: "#000",

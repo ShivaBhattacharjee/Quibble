@@ -27,11 +27,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
     safetySettings,
   });
   try {
-    const result = await model.generateContent(
-      `Before responding keep in mind the following things
-      1.If anyone asks who are you respond you are rgu library an ai chat assistant that provides helps with book and notes summerisation"
-      ${prompt} `
-    );
+    const result = await model.generateContent(`${prompt} `);
     return NextResponse.json({ result: result });
   } catch (error: unknown) {
     const ErrorMsg = error as Error;

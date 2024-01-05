@@ -27,7 +27,6 @@ const page = () => {
         const res = await req.data;
         console.log(res);
       } else {
-        setLoading(false);
         Toast.ErrorShowToast("Message can't be empty");
       }
     } catch (Error) {

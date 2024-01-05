@@ -36,7 +36,7 @@ export default function RootLayout({
           showAtBottom={false}
         />
 
-        <Toaster position="top-left" />
+        <Toaster position="top-center" />
         <div className=" bg-purple-800 opacity-30 duration-200 right-0 -z-10 rounded-full blur-3xl w-[60%] h-96 top-20 absolute"></div>
         <AuthProvider>
           <main>
