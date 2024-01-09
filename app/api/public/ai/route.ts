@@ -4,12 +4,15 @@ import {
   HarmBlockThreshold,
 } from "@google/generative-ai";
 import { NextRequest, NextResponse } from "next/server";
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
+
 
 interface Error {
   response: string;
 }
+
 export async function POST(request: NextRequest, response: NextResponse) {
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
+  // safety layer settings for more info visit ai.google developers regarding gemini-pro safety protection
   const safetySettings = [
     {
       category: HarmCategory.HARM_CATEGORY_HARASSMENT,
