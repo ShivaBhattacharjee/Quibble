@@ -1,8 +1,9 @@
 "use client";
-import { ChevronDown, LogIn, LogOut } from "lucide-react";
+import { ChevronDown, LogIn, LogOut, Menu } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import History from "./History";
 
 const Navbar: React.FC = () => {
   const session = useSession();
@@ -24,12 +25,17 @@ const Navbar: React.FC = () => {
   }, [menuRef]);
   return (
     <nav ref={menuRef} className="flex flex-wrap justify-between items-center">
-      <Link
-        href={"/"}
-        className=" font-semibold  font-Montserrat uppercase text-3xl tracking-wider bg-gradient-to-r from-white to-purple-700 bg-clip-text text-transparent"
-      >
-        Quibble
-      </Link>
+      <div className="flex items-center gap-3">
+        <div>
+          <History />
+        </div>
+        <Link
+          href={"/"}
+          className=" font-semibold  font-Montserrat uppercase text-3xl tracking-wider bg-gradient-to-r from-white to-purple-700 bg-clip-text text-transparent"
+        >
+          Quibble
+        </Link>
+      </div>
       <div className="flex gap-4 items-center">
         {session.status === "authenticated" ? (
           <div className=" relative accent-violet-400 cursor-pointer">
