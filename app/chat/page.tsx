@@ -33,6 +33,13 @@ const Chat = () => {
         const body = {
           prompt: prompt,
         };
+        setMessage([
+          ...message,
+          {
+            text: text,
+            isBot: false,
+          },
+        ]);
         setLoading(true);
         const req = await axios.post("/api/public/ai", body);
         console.log("generating response");
