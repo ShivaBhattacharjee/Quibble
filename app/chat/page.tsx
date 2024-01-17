@@ -52,7 +52,7 @@ const Chat = () => {
             isBot: false,
           },
           {
-            text: "Response from AI see console for more info",
+            text: res.result.response.candidates[0].content.parts[0].text,
             isBot: true,
           },
         ]);
