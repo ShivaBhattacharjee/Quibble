@@ -1,4 +1,5 @@
 "use client";
+import Toast from "@/utils/toast";
 import { Menu, Plus } from "lucide-react";
 import React, { useState } from "react";
 
@@ -14,12 +15,15 @@ const History = () => {
         />
       </div>
       <div
-        className={` w-full lg:w-72 lg:rounded-r-lg overflow-y-scroll z-20 h-full bg-purple-500 p-4 ${
+        className={` w-full lg:w-72 lg:rounded-r-lg overflow-y-scroll z-20 h-full bg-purple-800 p-4 ${
           expandHistory ? "left-0" : "-left-[2000px]"
         } fixed top-0 duration-200`}
       >
         <div className="flex mt-12 justify-center items-center">
-          <button className=" w-full text-center flex justify-center items-center border-2 p-2 rounded-lg font-semibold text-2xl uppercase">
+          <button
+            onClick={() => Toast.ErrorShowToast("Under development")}
+            className=" w-full text-center flex justify-center items-center border-2 p-2 rounded-lg font-semibold text-2xl uppercase"
+          >
             <Plus /> New Chat
           </button>
         </div>
