@@ -74,39 +74,45 @@ const Chat = () => {
   }, [session]);
 
   return (
-    <section className=" min-h-[92vh] relative text-white overflow-scroll flex flex-col justify-between align-middle">
+    <section className=" min-h-[92vh] w-full relative text-white overflow-scroll flex flex-col justify-between align-middle">
       {/* chatbody */}
 
       <div className=" overflow-auto h-[90%] w-full max-w-full">
-        <div className="flex flex-col gap-4 mt-12">
+        <div className="flex w-full flex-col gap-4 mt-12">
           {/* client messages */}
 
           {message.map((msg, i) => (
-            <div className="flex gap-4 self-end" key={i}>
+            <div className="flex gap-4 w-full self-end" key={i}>
+              {msg.isBot && <Bot size={30} />}
               <div
-                className="bg-purple-500 w-72 lg:w-96 break-words border-2 border-purple-300 outline-none
-      rounded-lg p-3 self-end"
+                className={`${
+                  msg.isBot
+                    ? `${aiStyle} flex gap-4 self-start items-center`
+                    : "bg-purple-800 w-72 lg:w-96 break-words border-2 border-purple-300 outline-none rounded-lg p-3 self-end"
+                }`}
               >
                 <pre className="whitespace-pre-wrap font-semibold">
                   <span>{msg.text}</span>
                 </pre>
               </div>
-              {session.data?.user?.image != "" ? (
-                <img
-                  src={session.data?.user?.image || ""}
-                  alt=""
-                  className="w-8 h-8 rounded-full"
-                />
-              ) : (
-                <div className="w-10 h-10 rounded-full flex justify-center items-center uppercase font-bold text-xl bg-white text-black">
-                  {session.data.user.name?.charAt(0).toUpperCase()}
-                </div>
+              {!msg.isBot && (
+                <>
+                  {session.data?.user?.image != "" ? (
+                    <img
+                      src={session.data?.user?.image || ""}
+                      alt=""
+                      className="w-8 h-8 rounded-full"
+                    />
+                  ) : (
+                    <div className="w-10 h-10 rounded-full flex justify-center items-center uppercase font-bold text-xl bg-white text-black">
+                      {session.data.user.name?.charAt(0).toUpperCase()}
+                    </div>
+                  )}
+                </>
               )}
             </div>
           ))}
-
           {/* ai message */}
-
           {/* <div className={`flex items-center gap-4`}>
             <Bot size={30} />
             <div className={` ${aiStyle} flex gap-4 self-start items-center`}>
