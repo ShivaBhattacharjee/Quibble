@@ -47,6 +47,13 @@ const Chat = () => {
       }
     } catch (error) {
       setLoading(false);
+      setMessage((prevMessages) => [
+        ...prevMessages,
+        {
+          text: "Request failed",
+          isBot: true,
+        },
+      ]);
       Toast.ErrorShowToast("Something went wrong");
     } finally {
       setLoading(false);
@@ -79,7 +86,7 @@ const Chat = () => {
             <React.Fragment key={index}>
               {msg.text !== "" && (
                 <div
-                  className={`break-words flex gap-7 ${
+                  className={`break-words ${
                     msg.isBot ? "self-start" : "self-end"
                   } px-3 py-3`}
                 >
@@ -93,17 +100,6 @@ const Chat = () => {
                     <span>{msg.text}</span>
                   </pre>
 
-                  {msg.isBot && (
-                    <div className="absolute bottom-[-20px]">
-                      {copied ? (
-                        <ClipboardCheck />
-                      ) : (
-                        <Clipboard
-                          onClick={() => handleCopyClick(msg.text || "")}
-                        />
-                      )}
-                    </div>
-                  )}
                   {/* message end */}
                   <div ref={msgEnd}></div>
                 </div>
@@ -112,7 +108,7 @@ const Chat = () => {
           ))}
           {loading && (
             <div
-              className={`break-words bg-purple-700 text-sm flex gap-7 self-start px-3 py-3 rounded-full`}
+              className={`break-words bg-purple-700 text-sm flex gap-7 self-start p-3 rounded-lg`}
             >
               <SyncLoader size={6} color="#fff" />
             </div>
