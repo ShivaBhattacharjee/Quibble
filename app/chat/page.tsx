@@ -1,25 +1,24 @@
 "use client";
-import Toast from "@/utils/toast";
+
+import React, { useEffect, useState, FormEvent, use } from "react";
 import axios from "axios";
-import { Bot, Clipboard, SendHorizontal } from "lucide-react";
+import { SyncLoader } from "react-spinners";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState, FormEvent } from "react";
-import { SyncLoader } from "react-spinners";
+import Toast from "@/utils/toast";
+import { Bot, Clipboard, ClipboardCheck, SendHorizontal } from "lucide-react";
 
 const Chat = () => {
   const router = useRouter();
   const session = useSession();
-  const [message, setMessage] = useState<{ text?: string; isBot: boolean }[]>([
-    {
-      text: "",
-      isBot: true,
-    },
-  ]);
-
+  const [message, setMessage] = useState<{ text?: string; isBot: boolean }[]>(
+    () => [{ text: "", isBot: true }]
+  );
   const [prompt, setPrompt] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [copied, setCopied] = useState<boolean>(false);
 
+  const msgEnd = React.useRef<HTMLDivElement>(null);
   const aiStyle =
     "bg-white/5 z-10 w-72 lg:w-96  break-words border-2 border-white/15 outline-none rounded-lg p-3";
 
@@ -28,29 +27,16 @@ const Chat = () => {
     try {
       const text = prompt;
       setPrompt("");
-      setPrompt("");
       if (prompt.length > 1) {
-        const body = {
-          prompt: prompt,
-        };
-        setMessage([
-          ...message,
-          {
-            text: text,
-            isBot: false,
-          },
-        ]);
+        const body = { prompt };
+        setMessage((prevMessages) => [...prevMessages, { text, isBot: false }]);
         setLoading(true);
         const req = await axios.post("/api/public/ai", body);
         console.log("generating response");
         const res = await req.data;
         console.log(res);
-        setMessage([
-          ...message,
-          {
-            text: text,
-            isBot: false,
-          },
+        setMessage((prevMessages) => [
+          ...prevMessages,
           {
             text: res.result.response.candidates[0].content.parts[0].text,
             isBot: true,
@@ -59,34 +45,43 @@ const Chat = () => {
       } else {
         Toast.ErrorShowToast("Message cannot be empty");
       }
-    } catch (Error) {
+    } catch (error) {
       setLoading(false);
       Toast.ErrorShowToast("Something went wrong");
     } finally {
       setLoading(false);
     }
   };
-
+  ("use client");
+  const handleCopyClick = (message: string) => {
+    navigator.clipboard.writeText(message || "unable to copy");
+    setCopied(true);
+    Toast.SuccessshowToast("Copied to clipboard");
+    setTimeout(() => {
+      setCopied(false);
+    }, 3000);
+  };
   useEffect(() => {
     if (session.status === "unauthenticated") {
       router.push("/login");
     }
   }, [session]);
+  useEffect(() => {
+    msgEnd.current?.scrollIntoView({ behavior: "smooth" });
+  }, [message]);
 
   return (
-    <section className=" min-h-[92vh] w-full relative text-white overflow-scroll flex flex-col justify-between align-middle">
+    <section className="min-h-[92vh] w-full relative text-white overflow-scroll flex flex-col justify-between align-middle">
       {/* chatbody */}
-
-      <div className=" overflow-auto h-[90%] w-full max-w-full ">
-        <div className="flex flex-col mb-9 mt-9 relative ">
+      <div className="overflow-auto h-[90%] w-full max-w-full">
+        <div className="flex flex-col mb-9 mt-9 relative">
           {message.map((msg, index) => (
-            <>
-              {msg.text != "" && (
+            <React.Fragment key={index}>
+              {msg.text !== "" && (
                 <div
-                  key={index}
-                  className={` break-words flex gap-7 ${
+                  className={`break-words flex gap-7 ${
                     msg.isBot ? "self-start" : "self-end"
-                  } px-3 py-3 `}
+                  } px-3 py-3`}
                 >
                   <pre
                     className={`${
@@ -99,13 +94,21 @@ const Chat = () => {
                   </pre>
 
                   {msg.isBot && (
-                    <div className=" absolute bottom-[-2%]">
-                      <Clipboard />
+                    <div className="absolute bottom-[-20px]">
+                      {copied ? (
+                        <ClipboardCheck />
+                      ) : (
+                        <Clipboard
+                          onClick={() => handleCopyClick(msg.text || "")}
+                        />
+                      )}
                     </div>
                   )}
+                  {/* message end */}
+                  <div ref={msgEnd}></div>
                 </div>
               )}
-            </>
+            </React.Fragment>
           ))}
         </div>
       </div>
@@ -113,9 +116,9 @@ const Chat = () => {
       <div className="flex w-full flex-col gap-3 justify-center items-center">
         <form
           onSubmit={handleSubmit}
-          className=" w-full lg:w-[60%] border-2 border-white/10 flex gap-7 flex-wrap justify-between bg-white bg-opacity-10 max-h-20 rounded-lg p-6 overflow-auto relative"
+          className="w-full lg:w-[60%] border-2 border-white/10 flex gap-7 flex-wrap justify-between bg-white bg-opacity-10 max-h-20 rounded-lg p-6 overflow-auto relative"
         >
-          <div className=" w-full">
+          <div className="w-full">
             {loading ? (
               <div className="flex w-full text-center justify-center items-center">
                 <SyncLoader color="#a78bfa" size={10} />
@@ -128,11 +131,11 @@ const Chat = () => {
                   onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
                     setPrompt(e.target.value)
                   }
-                  className=" border-0 font-medium bg-transparent outline-none overflow-scroll w-[96%]"
+                  className="border-0 font-medium bg-transparent outline-none overflow-scroll w-[96%]"
                   typeof="text"
                 />
                 {!loading && (
-                  <button className=" absolute duration-200 hover:bg-transparent hover:border-2 hover:border-purple-700 cursor-pointer right-3 p-2 md:top-6 top-4 bg-purple-600 rounded-full">
+                  <button className="absolute duration-200 hover:bg-transparent hover:border-2 hover:border-purple-700 cursor-pointer right-3 p-2 md:top-6 top-4 bg-purple-600 rounded-full">
                     <SendHorizontal />
                   </button>
                 )}
@@ -140,7 +143,7 @@ const Chat = () => {
             )}
           </div>
         </form>
-        <p className=" text-sm font-medium text-white/70 text-center">
+        <p className="text-sm font-medium text-white/70 text-center">
           Quibble may display inaccurate info, so double-check its responses
         </p>
       </div>
