@@ -110,6 +110,13 @@ const Chat = () => {
               )}
             </React.Fragment>
           ))}
+          {loading && (
+            <div
+              className={`break-words bg-purple-700 text-sm flex gap-7 self-start px-3 py-3 rounded-full`}
+            >
+              <SyncLoader size={6} color="#fff" />
+            </div>
+          )}
         </div>
       </div>
 
@@ -120,8 +127,8 @@ const Chat = () => {
         >
           <div className="w-full">
             {loading ? (
-              <div className="flex w-full text-center justify-center items-center">
-                <SyncLoader color="#a78bfa" size={10} />
+              <div className="flex font-semibold tracking-widest gap-4 w-full text-center justify-center items-center">
+                Thinking <SyncLoader color="#fff" size={3} />
               </div>
             ) : (
               <>
