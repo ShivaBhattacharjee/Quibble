@@ -78,9 +78,9 @@ const Chat = () => {
   }, [message]);
 
   return (
-    <section className="min-h-[92vh] w-full relative text-white overflow-scroll flex flex-col justify-between align-middle">
+    <section className="min-h-[92vh] w-full relative text-white overflow-y-scroll flex flex-col justify-between align-middle">
       {/* chatbody */}
-      <div className="overflow-auto h-[90%] w-full max-w-full">
+      <div className=" overflow-y-scroll overflow-x-hidden h-[90%] w-full max-w-full">
         <div className="flex flex-col mb-9 mt-9 relative">
           {message.map((msg, index) => (
             <React.Fragment key={index}>
@@ -93,9 +93,9 @@ const Chat = () => {
                   <pre
                     className={`${
                       msg.isBot
-                        ? "bg-purple-800 rounded-lg"
+                        ? "bg-purple-800 rounded-lg max-w-[80%]"
                         : "border-2 rounded-lg"
-                    } p-4 rounded-lg whitespace-pre-wrap max-w-full`}
+                    } p-4 rounded-lg whitespace-pre-wrap `}
                   >
                     <span>{msg.text}</span>
                   </pre>
