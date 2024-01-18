@@ -38,7 +38,9 @@ const Chat = () => {
         setMessage((prevMessages) => [
           ...prevMessages,
           {
-            text: res.result.response.candidates[0].content.parts[0].text,
+            text:
+              res?.result?.response?.candidates[0]?.content.parts[0]?.text ||
+              "Sorry I didn't get that",
             isBot: true,
           },
         ]);
