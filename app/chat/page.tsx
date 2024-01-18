@@ -1,7 +1,7 @@
 "use client";
 import Toast from "@/utils/toast";
 import axios from "axios";
-import { Bot, SendHorizontal } from "lucide-react";
+import { Bot, Clipboard, SendHorizontal } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState, FormEvent } from "react";
@@ -12,7 +12,7 @@ const Chat = () => {
   const session = useSession();
   const [message, setMessage] = useState<{ text?: string; isBot: boolean }[]>([
     {
-      text: "This is ai",
+      text: "",
       isBot: true,
     },
   ]);
@@ -77,50 +77,36 @@ const Chat = () => {
     <section className=" min-h-[92vh] w-full relative text-white overflow-scroll flex flex-col justify-between align-middle">
       {/* chatbody */}
 
-      <div className=" overflow-auto h-[90%] w-full max-w-full">
-        <div className="flex w-full flex-col gap-4 mt-12">
-          {/* client messages */}
+      <div className=" overflow-auto h-[90%] w-full max-w-full ">
+        <div className="flex flex-col mb-9 mt-9 relative ">
+          {message.map((msg, index) => (
+            <>
+              {msg.text != "" && (
+                <div
+                  key={index}
+                  className={` break-words flex gap-7 ${
+                    msg.isBot ? "self-start" : "self-end"
+                  } px-3 py-3 `}
+                >
+                  <pre
+                    className={`${
+                      msg.isBot
+                        ? "bg-purple-800 rounded-lg"
+                        : "border-2 rounded-lg"
+                    } p-4 rounded-lg whitespace-pre-wrap max-w-full`}
+                  >
+                    <span>{msg.text}</span>
+                  </pre>
 
-          {message.map((msg, i) => (
-            <div className="flex gap-4 w-full self-end" key={i}>
-              {msg.isBot && <Bot size={30} />}
-              <div
-                className={`${
-                  msg.isBot
-                    ? `${aiStyle} flex gap-4 self-start items-center`
-                    : "bg-purple-800 w-72 lg:w-96 break-words border-2 border-purple-300 outline-none rounded-lg p-3 self-end"
-                }`}
-              >
-                <pre className="whitespace-pre-wrap font-semibold">
-                  <span>{msg.text}</span>
-                </pre>
-              </div>
-              {!msg.isBot && (
-                <>
-                  {session.data?.user?.image != "" ? (
-                    <img
-                      src={session.data?.user?.image || ""}
-                      alt=""
-                      className="w-8 h-8 rounded-full"
-                    />
-                  ) : (
-                    <div className="w-10 h-10 rounded-full flex justify-center items-center uppercase font-bold text-xl bg-white text-black">
-                      {session.data.user.name?.charAt(0).toUpperCase()}
+                  {msg.isBot && (
+                    <div className=" absolute bottom-[-2%]">
+                      <Clipboard />
                     </div>
                   )}
-                </>
+                </div>
               )}
-            </div>
+            </>
           ))}
-          {/* ai message */}
-          {/* <div className={`flex items-center gap-4`}>
-            <Bot size={30} />
-            <div className={` ${aiStyle} flex gap-4 self-start items-center`}>
-              <pre className=" whitespace-pre-wrap font-semibold">
-                <span className="">Hello world this is ai message</span>
-              </pre>
-            </div>
-          </div> */}
         </div>
       </div>
 
