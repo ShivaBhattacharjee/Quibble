@@ -72,8 +72,8 @@ const Chat = () => {
                     {message.map((msg, index) => (
                         <React.Fragment key={index}>
                             {msg.text !== "" && (
-                                <div className={`break-words ${msg.isBot ? "self-start" : "self-end"} px-3 py-3`}>
-                                    <pre className={`${msg.isBot ? "bg-purple-800 rounded-lg max-w-[80%]" : "border-2 rounded-lg"} p-4 rounded-lg whitespace-pre-wrap `}>
+                                <div className={`break-words max-w-[90%] lg:max-w-[30%] ${msg.isBot ? "self-start" : "self-end"} px-3 py-3`}>
+                                    <pre className={`${msg.isBot ? "bg-purple-800 rounded-lg " : "border-2 border-white/30 w-auto font-bold rounded-lg break-words"} p-4 rounded-lg whitespace-pre-wrap `}>
                                         <span>{msg.text}</span>
                                     </pre>
 
