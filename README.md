@@ -1,4 +1,4 @@
-<a href="https://github.com/ShivaBhattacharjee/quibble">
+<a href="https://github.com/ShivaBhattacharjee/Quibble">
 <p align="center">
   <img src="https://github.com/ShivaBhattacharjee/Quibble/assets/95211406/44e6dddd-1d56-46b8-9d31-707f91e78883" height="150px"/>
   </a>
@@ -10,7 +10,7 @@
 
 ![NextJs](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-![GitHub repo size](https://img.shields.io/github/repo-size/shivabhattacharjee/quibble)
+![GitHub repo size](https://img.shields.io/github/repo-size/shivabhattacharjee/Quibble)
 
 
   </div>
@@ -20,9 +20,9 @@
     <br/>
     <a href="https://quibbleai.vercel.app/">View Demo</a>
     .
-    <a href="https://github.com/ShivaBhattacharjee/quibble/issues">Report Bug</a>
+    <a href="https://github.com/ShivaBhattacharjee/Quibble/issues">Report Bug</a>
     .
-    <a href="https://github.com/ShivaBhattacharjee/quibble/issues">Request Feature</a>
+    <a href="https://github.com/ShivaBhattacharjee/Quibble/issues">Request Feature</a>
   </p>
 </p>
 
@@ -102,24 +102,24 @@ Image will be available soon
 ## Host your own
 * ## Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FShivaBhattacharjee%2Fquibble)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FShivaBhattacharjee%2FQuibble)
 <br/>
 <br/>
 
 * ## Netlify
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ShivaBhattacharjee/quibble)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ShivaBhattacharjee/Quibble)
 <br/>
 <br/>
 
 * ## Render
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/ShivaBhattacharjee/quibble)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/ShivaBhattacharjee/Quibble)
 
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/ShivaBhattacharjee/quibble/issues) to discuss it
+* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/ShivaBhattacharjee/Quibble/issues) to discuss it
 
 * Please make sure you check your spelling and grammar.
 
@@ -136,7 +136,7 @@ Wanna contribute to Quibble ?
 
 ## Raising an issue
 
-If you're experiencing any problems with Quibble, please be sure to review our [issue template](https://github.com/ShivaBhattacharjee/quibble/tree/main/.github/ISSUE_TEMPLATE) before opening a new issue. The template includes a list of questions and prompts that will help us better understand the issue you're experiencing, and it will ensure that we have all of the necessary information to investigate the problem.
+If you're experiencing any problems with Quibble, please be sure to review our [issue template](https://github.com/ShivaBhattacharjee/Quibble/tree/main/.github/ISSUE_TEMPLATE) before opening a new issue. The template includes a list of questions and prompts that will help us better understand the issue you're experiencing, and it will ensure that we have all of the necessary information to investigate the problem.
 
 We kindly ask that you provide as much detail as possible when submitting an issue, including steps to reproduce the problem, any error messages that you have seen, and any other relevant information. This will help us to identify and fix the issue more quickly.
 
@@ -144,11 +144,11 @@ Thank you for your cooperation, and we look forward to hearing from you!
 
 ## Code of conduct
 
-Developers are requested to go through our <a href="https://github.com/ShivaBhattacharjee/quibble/blob/main/CODE_OF_CONDUCT.md">code of conduct</a> thoroughly to maintain a peaceful environment within our project.
+Developers are requested to go through our <a href="https://github.com/ShivaBhattacharjee/Quibble/blob/main/CODE_OF_CONDUCT.md">code of conduct</a> thoroughly to maintain a peaceful environment within our project.
 
 ## License
 
-Distributed under the Apache License 2.0 . See [LICENSE](https://github.com/ShivaBhattacharjee/quibble/blob/main/LICENSE) for more information.
+Distributed under the Apache License 2.0 . See [LICENSE](https://github.com/ShivaBhattacharjee/Quibble/blob/main/LICENSE) for more information.
 
 
 ## Authors
