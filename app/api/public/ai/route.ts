@@ -1,5 +1,4 @@
-import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from "@google/generative-ai";
-
+import { GoogleGenerativeAI, HarmBlockThreshold,HarmCategory } from "@google/generative-ai";
 import { NextRequest, NextResponse } from "next/server";
 
 interface Error {

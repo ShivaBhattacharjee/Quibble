@@ -1,17 +1,23 @@
 {
-  "name": "ai-story-gen",
-  "version": "0.1.0",
-  "private": true,
+  "name": "Quibble",
+  "version": "1.0.0",
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "fix-imports": "import-sort --write './src/**/*.ts' './src/**/*.tsx'",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@google/generative-ai": "^0.1.3",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
     "axios": "^1.6.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "framer-motion": "^10.17.4",
+    "import-sort-cli": "^6.0.0",
     "lucide-react": "^0.303.0",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
@@ -28,6 +34,7 @@
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
+    "husky": "^8.0.3",
     "postcss": "^8",
     "prettier": "3.2.4",
     "tailwindcss": "^3.3.0",

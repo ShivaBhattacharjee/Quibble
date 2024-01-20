@@ -1,10 +1,10 @@
 "use client";
-import Toast from "@/utils/toast";
-import { useSession, signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
-
 import React, { useEffect } from "react";
 import { ClipLoader } from "react-spinners";
+import { useRouter } from "next/navigation";
+import { signIn,useSession } from "next-auth/react";
+
+import Toast from "@/utils/toast";
 
 const Login = () => {
   const session = useSession();
