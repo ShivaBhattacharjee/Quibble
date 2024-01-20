@@ -125,7 +125,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ### Creating A Pull Request
 
-Wanna contribute to AnimeTrix ?
+Wanna contribute to Quibble ?
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/FeatureName`)
@@ -136,7 +136,7 @@ Wanna contribute to AnimeTrix ?
 
 ## Raising an issue
 
-If you're experiencing any problems with Animetrix, please be sure to review our [issue template](https://github.com/ShivaBhattacharjee/quibble/tree/main/.github/ISSUE_TEMPLATE) before opening a new issue. The template includes a list of questions and prompts that will help us better understand the issue you're experiencing, and it will ensure that we have all of the necessary information to investigate the problem.
+If you're experiencing any problems with Quibble, please be sure to review our [issue template](https://github.com/ShivaBhattacharjee/quibble/tree/main/.github/ISSUE_TEMPLATE) before opening a new issue. The template includes a list of questions and prompts that will help us better understand the issue you're experiencing, and it will ensure that we have all of the necessary information to investigate the problem.
 
 We kindly ask that you provide as much detail as possible when submitting an issue, including steps to reproduce the problem, any error messages that you have seen, and any other relevant information. This will help us to identify and fix the issue more quickly.
 
@@ -148,9 +148,9 @@ Developers are requested to go through our <a href="https://github.com/ShivaBhat
 
 ## License
 
-Distributed under the Apache License 2.0 . See [LICENSE](https://github.com/ShivaBhattacharjee/AnimeTrix-next/blob/main/LICENSE) for more information.
+Distributed under the Apache License 2.0 . See [LICENSE](https://github.com/ShivaBhattacharjee/quibble/blob/main/LICENSE) for more information.
 
 
 ## Authors
 
-* **Shiva Bhattacharjee** - [Shiva Bhattacharjee](https://github.com/ShivaBhattacharjee) - *AnimeTrix*
+* **Shiva Bhattacharjee** - [Shiva Bhattacharjee](https://github.com/ShivaBhattacharjee) - *Quibble*
