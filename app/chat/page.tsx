@@ -64,6 +64,14 @@ const Chat = () => {
         msgEnd.current?.scrollIntoView({ behavior: "smooth" });
     }, [message]);
 
+    const handleTextareaKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
+            const fakeSubmitEvent = new Event("submit") as unknown as React.FormEvent<HTMLFormElement>;
+            handleSubmit(fakeSubmitEvent);
+        }
+    };
+
     return (
         <section className="min-h-[92vh] w-full relative text-white overflow-y-scroll flex flex-col justify-between align-middle">
             {/* chatbody */}
@@ -100,7 +108,7 @@ const Chat = () => {
                             </div>
                         ) : (
                             <>
-                                <textarea placeholder="Enter a message" rows={1} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setPrompt(e.target.value)} className="border-0 font-medium bg-transparent outline-none overflow-scroll w-[96%]" typeof="text" />
+                                <textarea onKeyDown={handleTextareaKeyDown} placeholder="Enter a message" rows={1} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setPrompt(e.target.value)} className="border-0 font-medium bg-transparent outline-none overflow-scroll w-[96%]" typeof="text" />
                                 {!loading && (
                                     <button className="absolute duration-200 hover:bg-transparent hover:border-2 hover:border-purple-700 cursor-pointer right-3 p-2 top-4 bg-purple-600 rounded-full">
                                         <SendHorizontal />
