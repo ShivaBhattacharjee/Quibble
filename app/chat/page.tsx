@@ -91,8 +91,8 @@ const Chat = () => {
                             )}
                         </React.Fragment>
                     ))}
-                    {loading && (
-                        <div className={`break-words bg-purple-700 text-sm flex gap-7 self-start p-3 rounded-lg`}>
+                    {!loading && (
+                        <div className={`break-words bg-purple-600 text-sm flex gap-7 self-start p-3 rounded-lg`}>
                             <SyncLoader size={6} color="#fff" />
                         </div>
                     )}
