@@ -107,7 +107,7 @@ const Chat = () => {
     };
 
     return (
-        <section className="min-h-[92vh] w-full relative text-white overflow-y-scroll flex flex-col justify-between align-middle">
+        <section className="min-h-[92vh] mb-14 w-full relative text-white overflow-y-scroll flex flex-col justify-between align-middle">
             {/* chatbody */}
             <div className=" overflow-y-scroll mb-14 overflow-x-hidden h-[90%] w-full max-w-full">
                 <div className="flex flex-col mb-9 mt-9 relative">
@@ -134,7 +134,7 @@ const Chat = () => {
             </div>
 
             <div className="flex w-full flex-col gap-3 justify-center items-center">
-                <form onSubmit={handleSubmit} className="lg:w-[60%] border-2 fixed bottom-16 w-[90%] m-auto left-0 right-0 border-white/10 flex gap-7 flex-wrap justify-between bg-black/80  max-h-20 rounded-lg p-6 overflow-auto ">
+                <form onSubmit={handleSubmit} className="lg:w-[60%] border-2 fixed bottom-10 w-[90%] m-auto left-0 right-0 border-white/10 flex gap-7 flex-wrap justify-between bg-black/80  max-h-20 rounded-lg p-6 overflow-auto ">
                     <div className="w-full">
                         {loading ? (
                             <div className="flex font-semibold tracking-widest gap-4 w-full text-center justify-center items-center">
