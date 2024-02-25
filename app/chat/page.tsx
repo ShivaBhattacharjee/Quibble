@@ -152,7 +152,6 @@ const Chat = () => {
                         )}
                     </div>
                 </form>
-                <p className="text-sm font-medium text-white/70 text-center">Quibble may display inaccurate info, so double-check its responses</p>
             </div>
         </section>
     );
